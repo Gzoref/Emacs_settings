@@ -1,3 +1,4 @@
+;;Packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -12,6 +13,8 @@
 (global-whitespace-mode t)
 
 (setq column-number-mode t)
+
+(require 'no-littering)
 
 (add-hook 'prog-mode-hook 'linum-mode)
 (setf company-backends '())
@@ -30,7 +33,7 @@
     ("b6ed216e578e673399a6086666accf1d2c2100269446c009405c4415af0c8c9c" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" default)))
  '(package-selected-packages
    (quote
-    (flycheck-rtags yasnippet-snippets treemacs srefactor sequences rtags neotree multi-term kaolin-themes ivy helm-c-yasnippet google-c-style git-gutter+ flymake-easy flycheck-pkg-config flycheck-irony flycheck-color-mode-line el-autoyas company-ycm company-irony-c-headers company-ghc company-fuzzy company-c-headers c0-mode auto-complete-clang anzu all-the-icons ac-helm))))
+    (no-littering markdown-mode multiple-cursors benchmark-init flycheck-rtags yasnippet-snippets treemacs srefactor sequences rtags neotree multi-term kaolin-themes ivy helm-c-yasnippet google-c-style git-gutter+ flymake-easy flycheck-pkg-config flycheck-irony flycheck-color-mode-line el-autoyas company-ycm company-irony-c-headers company-ghc company-fuzzy company-c-headers c0-mode auto-complete-clang anzu all-the-icons ac-helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,7 +68,7 @@
 ;;(defun flycheck-list-errors-only-when-errors ()
   ;(if flycheck-current-errors
    ;   (flycheck-list-errors)
-    ;(-when-let (buffer (get-buffer flycheck-error-list-buffer))
+					;(-when-let (buffer (get-buffer flycheck-error-list-buffer))
      ; (dolist (window (get-buffer-window-list buffer))
 ;	(quit-window nil window)))))
 
@@ -84,5 +87,19 @@
   )
 
 (setq-default neo-show-hidden-files t)
+
+(savehist-mode 1)
+
+(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+
+(show-paren-mode 1)
+
+(setq load-path (cons "~/Build/Emacs/org-mode/lisp" load-path))
+(setq load-path (cons "~/Build/Emacs/org-mode/contrib/lisp"
+		      load-path))
+
+(require 'org-install)
+
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
 
 ;;;.emacs ends here
