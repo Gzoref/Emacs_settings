@@ -33,7 +33,7 @@
     ("b6ed216e578e673399a6086666accf1d2c2100269446c009405c4415af0c8c9c" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" default)))
  '(package-selected-packages
    (quote
-    (no-littering markdown-mode multiple-cursors benchmark-init flycheck-rtags yasnippet-snippets treemacs srefactor sequences rtags neotree multi-term kaolin-themes ivy helm-c-yasnippet google-c-style git-gutter+ flymake-easy flycheck-pkg-config flycheck-irony flycheck-color-mode-line el-autoyas company-ycm company-irony-c-headers company-ghc company-fuzzy company-c-headers c0-mode auto-complete-clang anzu all-the-icons ac-helm))))
+    (dashboard magit emmet-mode no-littering markdown-mode multiple-cursors benchmark-init flycheck-rtags yasnippet-snippets treemacs srefactor sequences rtags neotree multi-term kaolin-themes ivy helm-c-yasnippet google-c-style git-gutter+ flymake-easy flycheck-pkg-config flycheck-irony flycheck-color-mode-line el-autoyas company-ycm company-irony-c-headers company-ghc company-fuzzy company-c-headers c0-mode auto-complete-clang anzu all-the-icons ac-helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -101,5 +101,12 @@
 (require 'org-install)
 
 (global-set-key (kbd "C-c m c") 'mc/edit-lines)
+
+
+(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
+(setq electric-pair-preserve-balance nil)
 
 ;;;.emacs ends here
