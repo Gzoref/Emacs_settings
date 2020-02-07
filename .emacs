@@ -109,4 +109,7 @@
 
 (setq electric-pair-preserve-balance nil)
 
+(setq xterm-mouse-mode t)
+
 ;;;.emacs ends here
+(put 'set-goal-column 'disabled nil)
