@@ -9,6 +9,11 @@
       indent-tabs-mode t)
 (require 'whitespace)
 
+(load "~/.emacs.d/private/Betty/betty-style")
+(add-to-list 'flycheck-checkers 'betty-style)
+(setq flycheck-gcc-pedantic t)
+  (setq flycheck-gcc-warnings '("all" "extra" "error"))
+
 (setq whitespace-style '(face empty lines-tail trailing))
 (global-whitespace-mode t)
 
